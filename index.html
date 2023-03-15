@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container">
-      <div id="carrello" class="row bg-primary">Il carrello è vuoto</div>
+      <div id="carrello" class="row row-cols-6 flex-nowrap overflow-scroll bg-primary">Cart:</div>
     </div>
     <div class="container">
       <div id="books-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
@@ -39,6 +39,7 @@
                                 <h5 class="card-title">${book.title}</h5>
                                 <p class="card-text">${book.price}</p>
                                 <a href="#" id="delete-button" class="btn btn-primary">Scarta</a>
+                                <a href="#" id="carrello-button" class="btn btn-primary">Add to cart</a>
                             </div>
                         </div>
                         `;
@@ -47,6 +48,11 @@
             deleteButton.onclick = () => {
               const parent = deleteButton.parentNode.parentNode.parentNode;
               grid.removeChild(parent);
+            };
+            const carrelloButton = col.querySelector("#carrello-button");
+            carrelloButton.onclick = () => {
+              const cart = document.querySelector("#carrello");
+              cart.appendChild(col);
             };
             grid.appendChild(col);
           });
