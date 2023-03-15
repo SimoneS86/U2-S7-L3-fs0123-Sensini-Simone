@@ -56,8 +56,7 @@
 
             const deleteButton = col.querySelector("#delete-button");
             deleteButton.onclick = () => {
-              const parent = deleteButton.parentNode.parentNode.parentNode;
-              grid.removeChild(parent);
+              col.remove();
             };
             const carrelloButton = col.querySelector("#carrello-button");
             carrelloButton.onclick = () => {
@@ -68,11 +67,9 @@
               const carrello = document.querySelector("#carrello").innerHTML;
               localStorage.setItem("carrello", carrello);
             };
-            const cart = document.querySelector("#carrello");
             const hideButton = col.querySelector("#hide-button");
             hideButton.onclick = () => {
-              const parent = hideButton.parentNode.parentNode.parentNode;
-              cart.removeChild(parent);
+              col.remove();
             };
             grid.appendChild(col);
           });
